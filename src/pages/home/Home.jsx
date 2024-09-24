@@ -1,6 +1,6 @@
 import React from 'react';
-import { Card, CardContent, Typography, IconButton } from '@mui/material';
-import Grid from '@mui/material/Grid2';
+import { Card, CardContent, Typography, IconButton, Box } from '@mui/joy';
+import Grid from '@mui/joy/Grid';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import QrCodeIcon from '@mui/icons-material/QrCode';
 import OndemandVideoIcon from '@mui/icons-material/OndemandVideo';
@@ -80,19 +80,19 @@ export default function Home() {
   };
 
   return (
-    <div style={{ padding: '20px', backgroundColor: '#f0f0f0', minHeight: '100vh' }}>
+    <Box sx={{ padding: 2, minHeight: '100vh' }}>
       {contentList.map((item, index) => (
-        <div key={index} style={{ marginBottom: '20px' }}>
-          <Typography variant="h5" align="center" gutterBottom style={{ fontWeight: 'bold', color: '#333' }}>
+        <Box key={index} sx={{ marginBottom: 2 }}>
+          <Typography level="h5" align="center" gutterBottom sx={{ fontWeight: 'bold', color: '#333' }}>
             {item.title}
           </Typography>
 
           <Grid container spacing={2}>
             {item.sub.map((subItem, subIndex) => (
               subItem.display && (
-                <Grid size={4} key={subIndex}>
+                <Grid xs={4} key={subIndex}>
                   <Card
-                    style={{
+                    sx={{
                       backgroundColor: subItem.color,
                       cursor: 'pointer',
                       display: 'flex',
@@ -103,11 +103,11 @@ export default function Home() {
                     }}
                     onClick={() => handleNavigation(subItem.path)}
                   >
-                    <CardContent style={{ textAlign: 'center', flex: 1 }}>
-                      <IconButton style={{ color: '#fff' }}>
+                    <CardContent sx={{ textAlign: 'center', flex: 1 }}>
+                      <IconButton sx={{ '--Icon-color': '#fff' }}>
                         {subItem.icon}
                       </IconButton>
-                      <Typography variant="body1" style={{ color: '#fff' }}>
+                      <Typography level="body1" sx={{ color: '#fff' }}>
                         {subItem.title}
                       </Typography>
                     </CardContent>
@@ -116,8 +116,8 @@ export default function Home() {
               )
             ))}
           </Grid>
-        </div>
+        </Box>
       ))}
-    </div>
+    </Box>
   );
 }

@@ -1,18 +1,29 @@
 import React from 'react';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
+import { Button, Snackbar } from '@mui/joy';
+import PlaylistAddCheckCircleRoundedIcon from '@mui/icons-material/PlaylistAddCheckCircleRounded';
 
 const Message = ({ open, message, severity = 'info', onClose, autoHideDuration = 3000 }) => {
   return (
     <Snackbar
-      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      variant="soft"
+      color={severity}
       open={open}
-      autoHideDuration={autoHideDuration}
       onClose={onClose}
+      anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      startDecorator={<PlaylistAddCheckCircleRoundedIcon />}
+      autoHideDuration={autoHideDuration}
+      endDecorator={
+        <Button
+          onClick={onClose}
+          size="sm"
+          variant="soft"
+          color={severity}
+        >
+          Dismiss
+        </Button>
+      }
     >
-      <Alert onClose={onClose} severity={severity} sx={{ width: '100%' }}>
-        {message}
-      </Alert>
+      {message}
     </Snackbar>
   );
 };

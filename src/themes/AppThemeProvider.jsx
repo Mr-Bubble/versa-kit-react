@@ -1,49 +1,18 @@
 import React from 'react';
-import {
-  ThemeProvider,
-  createTheme,
-  responsiveFontSizes,
-} from '@mui/material/styles';
+import { CssVarsProvider } from '@mui/joy/styles';
 import { useSelector } from 'react-redux';
 import { selectMode } from '@/features/user/userSlice';
+import { extendTheme } from '@mui/joy/styles';
 
 function AppThemeProvider({ children }) {
   const mode = useSelector(selectMode);
-  const theme = responsiveFontSizes(
-    createTheme({
-      palette: {
-        mode,
-      },
+  const theme = extendTheme({
+    palette: {
+      mode,
+    },
+  });
 
-      typography: {
-
-      },
-      components: {
-        MuiCssBaseline: {
-          styleOverrides: {
-            body: {
-              // ---CSS BODY--- \\
-            },
-          },
-        },
-        MuiLink: {
-          styleOverrides: {
-            root: {
-
-            },
-          },
-        },
-        MuiIconButton: {
-          styleOverrides: {
-            root: {
-
-            },
-          },
-        },
-      },
-    }),
-  );
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+  return <CssVarsProvider theme={theme}>{children}</CssVarsProvider>;
 }
 
 export default AppThemeProvider;
