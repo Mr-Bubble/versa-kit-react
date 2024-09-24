@@ -1,20 +1,4 @@
-## viterjs-template
-
-JavaScript + React + Redux + Mui + Axios + ESLint + Prettier
-
-![viterjs-template](https://i.ibb.co/xMMGs2Q/Screenshot-2023-07-07-105634.png)
-
 ### Getting Started
-
-#### Clone the repo
-
-```
-npx degit emre-cil/viterjs-template my-app
-```
-
-```
-cd my-app
-```
 
 #### Install Dependencies
 
