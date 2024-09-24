@@ -6,7 +6,7 @@ import TabBar from '@/components/TabBar/TabBar'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/versa-kit-react">
       <CssBaseline />
       <Routing />
       <TabBar/>
