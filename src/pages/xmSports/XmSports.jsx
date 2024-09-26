@@ -13,7 +13,7 @@ import FormControl from '@mui/joy/FormControl';
 import FormLabel from '@mui/joy/FormLabel';
 import Message from '@/components/Message/Message';
 import Grid from '@mui/joy/Grid';
-import { postXmPorts } from '@/app/index';
+import { postXmPorts } from '@/app/api';
 
 export default function HomeForm() {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -141,7 +141,7 @@ export default function HomeForm() {
         </Button>
       </form>
       {/* 使用说明 */}
-      <Box sx={{ mt: 4, p: 2, backgroundColor: '#f9f9f9', borderRadius: 2, boxShadow: 1 }}>
+      <Box sx={{ mt: 2, p: 2, backgroundColor: '#f9f9f9', borderRadius: 2, mb: 10 }}>
         <Typography level="h6" color="danger" gutterBottom>
           使用说明:
         </Typography>
